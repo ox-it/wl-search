@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.sakaiproject.event.api.Event;
+import org.sakaiproject.search.model.SearchBuilderItem;
 
 /**
  * This is a special class than handles ContentResources for the purposes of
@@ -57,8 +58,8 @@ public interface EntityContentProducer
 
 	/**
 	 * Get the content as a string
-	 * 
-	 * @param cr
+	 * @see SearchUtils#appendCleanString(String, StringBuilder)
+	 * @param reference
 	 * @return
 	 */
 	String getContent(String reference);
@@ -91,15 +92,16 @@ public interface EntityContentProducer
 	/**
 	 * Gets a list of Entity resource as a String to represent all indexable
 	 * content
-	 * @deprecated
-	 * @return
+	 * @deprecated See {@link #getSiteContentIterator(String)}
+	 * @return A List of Entity references.
 	 */
 	List getAllContent();
 
 	/**
-	 * Get the search builder action associated with the event
+	 * Get the search builder action associated with the event.
+	 * @see SearchBuilderItem
 	 * @param event
-	 * @return
+	 * @return One of the {@link SearchBuilderItem} constants.
 	 */
 	Integer getAction(Event event);
 
@@ -127,7 +129,7 @@ public interface EntityContentProducer
 
 	/**
 	 * get all the content associated with a site managed by this EntityContentProducer
-	 * @deprecated
+	 * @deprecated See {@link #getSiteContentIterator(String)}
 	 * @param context
 	 * @return
 	 */

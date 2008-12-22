@@ -362,4 +362,9 @@ public class MockSearchIndexBuilder implements SearchIndexBuilder
 		return false;
 	}
 
+	public boolean isExcludeUserSites() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

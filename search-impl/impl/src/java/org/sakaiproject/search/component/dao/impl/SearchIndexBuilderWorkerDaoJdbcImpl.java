@@ -1354,8 +1354,7 @@ public class SearchIndexBuilderWorkerDaoJdbcImpl implements SearchIndexBuilderWo
 						null, SortType.NONE, null).iterator(); i.hasNext();)
 				{
 					Site s = (Site) i.next();
-					if (!SiteService.isSpecialSite(s.getId())
-							|| SiteService.isUserSite(s.getId()))
+					if (!SiteService.isSpecialSite(s.getId()))
 					{
 						if (searchIndexBuilder.isOnlyIndexSearchToolSites())
 						{
@@ -1365,7 +1364,7 @@ public class SearchIndexBuilderWorkerDaoJdbcImpl implements SearchIndexBuilderWo
 								contextList.add(s.getId());
 							}
 						}
-						else
+						else if (!(searchIndexBuilder.isExcludeUserSites() && SiteService.isUserSite(s.getId())))
 						{
 							contextList.add(s.getId());
 						}

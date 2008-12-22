@@ -427,4 +427,9 @@ public class MockUserDirectoryService implements UserDirectoryService
 		return false;
 	}
 
+	public User getUserByAid(String arg0) throws UserNotDefinedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -69,6 +69,9 @@ public class SearchIndexBuilderImpl implements SearchIndexBuilder
 
 	private boolean onlyIndexSearchToolSites = false;
 
+ 	private boolean excludeUserSites = true;
+
+
 	private List<IndexQueueListener> indexQueueListeners = new ArrayList<IndexQueueListener>();
 
 	public void init()
@@ -543,6 +546,15 @@ public class SearchIndexBuilderImpl implements SearchIndexBuilder
 	{
 		this.onlyIndexSearchToolSites = onlyIndexSearchToolSites;
 	}
+	
+ 	
+ 	public void setExcludeUserSites(boolean excludeUserSites) {
+ 		this.excludeUserSites = excludeUserSites;
+ 	}
+ 
+ 	public boolean isExcludeUserSites() {
+ 		return excludeUserSites;
+ 	}
 
 	/*
 	 * (non-Javadoc)
