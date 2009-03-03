@@ -118,6 +118,10 @@ public class MockEventTrackingService implements EventTrackingService
 
 	}
 
+	public void cleanupEvents() {
+		// TODO Auto-generated method stub
+	}
+
 	/* (non-Javadoc)
 	 * @see org.sakaiproject.event.api.EventTrackingService#post(org.sakaiproject.event.api.Event, org.sakaiproject.user.api.User)
 	 */
