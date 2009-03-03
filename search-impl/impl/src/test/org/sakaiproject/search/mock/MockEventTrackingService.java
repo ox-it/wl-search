@@ -106,4 +106,9 @@ public class MockEventTrackingService implements EventTrackingService
 
 	}
 
+	public void cleanupEvents() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
