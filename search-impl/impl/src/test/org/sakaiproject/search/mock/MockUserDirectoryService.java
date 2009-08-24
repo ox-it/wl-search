@@ -439,7 +439,10 @@ public class MockUserDirectoryService implements UserDirectoryService
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	
- 
+
+	public User getUserByAid(String arg0) throws UserNotDefinedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
