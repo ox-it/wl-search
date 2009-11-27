@@ -29,9 +29,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.POITextExtractor;
 import org.apache.poi.extractor.ExtractorFactory;
-import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.sakaiproject.content.api.ContentResource;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 /**
  * @author ieb
@@ -56,6 +54,10 @@ public class PoiContentDigester extends BaseContentDigester
 	{
 		log.debug("Digesting with PoiContentDigester");
 		
+		if (contentResource == null) {
+			throw new RuntimeException("Attempt to digest null document!");
+		}
+		
 		if (contentResource != null && contentResource.getContentLength() > maxDigestSize)
 		{
 			throw new RuntimeException("Attempt to get too much content as a string on "
@@ -72,7 +74,7 @@ public class PoiContentDigester extends BaseContentDigester
 		}
 		catch (Exception e)
 		{
-			log.debug("Cannot index", e);
+			log.warn("Poi can't digest: " + contentResource.getId() + " POI returned: " + e);
 			throw new RuntimeException("Failed to read content for indexing ", e);
 		}
 		finally
