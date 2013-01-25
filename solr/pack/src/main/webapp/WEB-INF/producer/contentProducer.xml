@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="org.sakaiproject.search.producer.ContentProducerFactory"
+          class="org.sakaiproject.search.producer.ContentProducerFactory"/>
+
+    <!--
+    TODO: Remove ContentHostingContentProducer and the content of contentAdapterComponents to support
+    a newer content producer for binary files.
+    <import resource="binaryContentAdapterComponents.xml"/>
+    -->
+    <import resource="citationContentAdapterComponents.xml"/>
+</beans>
