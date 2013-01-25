@@ -47,7 +47,7 @@ import java.util.*;
  */
 public class SearchEntityProvider extends AbstractEntityProvider implements ActionsExecutable, Outputable, Describeable {
     private static final int DEFAULT_RESULT_COUNT = 10;
-    public UserDirectoryService userDirectoryService;
+    private UserDirectoryService userDirectoryService;
     private SearchService searchService;
     private SearchIndexBuilder searchIndexBuilder;
     private SiteService siteService;
