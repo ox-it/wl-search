@@ -27,6 +27,14 @@
             </includes>
             <unpack>true</unpack>
         </dependencySet>
+        <dependencySet>
+            <outputDirectory>components/solr-pack</outputDirectory>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+            <includes>
+                <include>org.sakaiproject.search.solr:solr-pack:war:*</include>
+            </includes>
+            <unpack>true</unpack>
+        </dependencySet>
         <!-- stuff that goes into webapps -->
         <dependencySet>
             <outputDirectory>webapps</outputDirectory>
