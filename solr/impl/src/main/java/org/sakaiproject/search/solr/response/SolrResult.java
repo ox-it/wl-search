@@ -43,7 +43,7 @@ public class SolrResult implements SearchResult {
 
     @Override
     public String getId() {
-        return (String) document.getFieldValue(SearchService.FIELD_REFERENCE);
+        return (String) document.getFieldValue(SearchService.FIELD_ID);
     }
 
     @Override
