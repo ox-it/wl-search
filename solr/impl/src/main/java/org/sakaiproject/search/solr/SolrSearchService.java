@@ -311,12 +311,6 @@ public class SolrSearchService implements SearchService {
         }
     }
 
-    @Override
-    public String[] getSearchSuggestions(String searchString, String currentSite, boolean allMySites) {
-        String suggestion = getSearchSuggestion(searchString);
-        return (suggestion != null) ? new String[]{searchString} : new String[0];
-    }
-
     //------------------------------------------------------------------------------------------
     //As far as I know, this implementation isn't diagnosable, so this is a dummy implementation
     //------------------------------------------------------------------------------------------
