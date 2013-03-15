@@ -9,7 +9,7 @@
     <name>Sakai Search Project</name>
     <groupId>org.sakaiproject.search</groupId>
     <artifactId>search</artifactId>
-    <version>1.3.8-SNAPSHOT</version>
+    <version>1.3.8ox1-SNAPSHOT</version>
     <packaging>pom</packaging>
     
     <properties>
