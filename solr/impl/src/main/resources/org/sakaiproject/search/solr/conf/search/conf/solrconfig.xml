@@ -57,7 +57,8 @@
             <str name="q.alt">*:*</str>
             <str name="q.op">AND</str>
             <int name="rows">10</int>
-            <str name="fl">*,score</str>
+            <!-- We don't want the contents in the response as it can be big -->
+            <str name="fl">indexdate,reference,container,id,type,subtype,title,tool,url,siteid, score</str>
 
             <str name="tv">true</str>
             <str name="tv.fl">contents</str>
