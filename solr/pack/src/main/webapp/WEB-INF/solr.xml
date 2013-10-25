@@ -45,11 +45,20 @@
     <bean id="solrTools" class="org.sakaiproject.search.solr.indexing.SolrTools" init-method="init">
         <property name="siteService" ref="org.sakaiproject.site.api.SiteService"/>
         <property name="searchIndexBuilder" ref="org.sakaiproject.search.api.SearchIndexBuilder"/>
-        <property name="solrServer" ref="solrLookupServer"/>
+        <property name="solrServer" ref="solrIndexingServer"/>
         <property name="contentProducerFactory" ref="org.sakaiproject.search.producer.ContentProducerFactory"/>
     </bean>
 
-    <bean id="solrLookupServer" class="org.sakaiproject.search.solr.util.SolrServerAdapter" init-method="init"
-          destroy-method="shutdown"/>
-    <alias alias="solrIndexingServer" name="solrLookupServer"/>
+    <bean id="solrLookupServer" factory-bean="solrServerFactory" factory-method="createLookup"
+            destroy-method="shutdown"/>
+    <bean id="solrIndexingServer" factory-bean="solrServerFactory" factory-method="createIndexing"
+            destroy-method="shutdown"/>
+
+    <!-- We need a factory so when running in embedded mode we can return the same instance but when connecting
+         over HTTP we can have a solr server with low timeouts for searching and one with high timeouts for
+         indexing. -->
+
+    <bean id="solrServerFactory" class="org.sakaiproject.search.solr.util.SolrServerFactory" init-method="init">
+        <property name="serverConfigurationService" ref="org.sakaiproject.component.api.ServerConfigurationService"/>
+    </bean>
 </beans>
