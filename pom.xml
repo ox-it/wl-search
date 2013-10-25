@@ -28,10 +28,7 @@
             <modules>
                 <module>search-api/api</module>
                 <module>search-help</module>
-                <module>search-impl/impl</module>
-                <module>search-impl/pack</module>
                 <module>search-integration-test</module>
-                <module>search-model</module>
                 <module>search-util</module>
                 <module>search-tool/tool</module>
                 <module>search-test</module>
@@ -46,10 +43,7 @@
             <modules>
                 <module>search-api/api</module>
                 <module>search-help</module>
-                <module>search-impl/impl</module>
-                <module>search-impl/pack</module>
                 <module>search-integration-test</module>
-                <module>search-model</module>
                 <module>search-util</module>
                 <module>search-tool/tool</module>
                 <module>search-test</module>

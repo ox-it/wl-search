@@ -31,12 +31,6 @@
         </dependency>
         <dependency>
             <groupId>org.sakaiproject.search</groupId>
-            <artifactId>search-model</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.sakaiproject.search</groupId>
             <artifactId>search-help</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
@@ -45,13 +39,6 @@
             <groupId>org.sakaiproject.search.solr</groupId>
             <artifactId>solr-pack</artifactId>
             <version>${solr-pack.version}</version>
-            <scope>compile</scope>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.sakaiproject.search</groupId>
-            <artifactId>search-pack</artifactId>
-            <version>${project.version}</version>
             <scope>compile</scope>
             <type>war</type>
         </dependency>

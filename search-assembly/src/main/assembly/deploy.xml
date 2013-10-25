@@ -14,18 +14,8 @@
             <useTransitiveDependencies>false</useTransitiveDependencies>
             <includes>
                 <include>org.sakaiproject.search:search-api:jar:*</include>
-                <include>org.sakaiproject.search:search-model:jar:*</include>
                 <include>org.sakaiproject.search:search-help:jar:*</include>
             </includes>
-        </dependencySet>
-        <!-- stuff that goes into components -->
-        <dependencySet>
-            <outputDirectory>components/search-pack</outputDirectory>
-            <useTransitiveDependencies>false</useTransitiveDependencies>
-            <includes>
-                <include>org.sakaiproject.search:search-pack:war:*</include>
-            </includes>
-            <unpack>true</unpack>
         </dependencySet>
         <dependencySet>
             <outputDirectory>components/solr-pack</outputDirectory>
