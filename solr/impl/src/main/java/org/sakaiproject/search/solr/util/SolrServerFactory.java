@@ -122,7 +122,7 @@ public class SolrServerFactory {
 
     /**
      * Returns a Solr Server which should be used for searching content.
-     * @return A ServerServer.
+     * @return A SolrServer.
      */
     public SolrServer createLookup() {
         return lookupInstance;
