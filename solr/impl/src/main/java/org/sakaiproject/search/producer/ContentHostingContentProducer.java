@@ -131,7 +131,7 @@ public abstract class ContentHostingContentProducer implements EntityContentProd
         Collection<String> contentReferences = new ArrayList<String>(siteContent.size());
         for (ContentResource contentResource : siteContent) {
             String reference = contentResource.getReference();
-            if (isResourceTypeSupported(reference))
+            if (isResourceTypeSupported(contentResource.getResourceType()))
                 contentReferences.add(reference);
         }
         return contentReferences.iterator();
