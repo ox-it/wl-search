@@ -21,6 +21,7 @@
 
 package org.sakaiproject.search.mock;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Locale;
@@ -145,6 +146,11 @@ public class MockServerConfigurationService implements ServerConfigurationServic
 	 */
 	public String getServerName()
 	{
+		return null;
+	}
+
+	@Override
+	public Collection<String> getServerNameAliases() {
 		return null;
 	}
 
