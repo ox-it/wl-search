@@ -20,10 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Search service using Solr to execute search queries.
@@ -284,7 +281,7 @@ public class SolrSearchService implements SearchService {
     }
 
     @Override
-    public String getSearchSuggestion(String searchString) {
+    public String[] getSearchSuggestions(String searchString, String currentSite, boolean allMySites) {
         logger.debug("Search a suggestion for '{}'", searchString);
         try {
             ModifiableSolrParams params = new ModifiableSolrParams();
@@ -297,12 +294,24 @@ public class SolrSearchService implements SearchService {
             SpellCheckResponse spellCheckResponse = response.getSpellCheckResponse();
             if (spellCheckResponse == null || !spellCheckResponse.isCorrectlySpelled())
                 return null;
-            else
-                return spellCheckResponse.getCollatedResult();
+            else {
+                List<SpellCheckResponse.Collation> collatedResults = spellCheckResponse.getCollatedResults();
+                List<String> suggestions = new ArrayList<String>(collatedResults.size());
+                for (SpellCheckResponse.Collation collation : collatedResults) {
+                    suggestions.add(collation.getCollationQueryString());
+                }
+                return suggestions.toArray(new String[]{});
+            }
         } catch (SolrServerException e) {
             logger.warn("Failed to obtain a suggestion", e);
             return null;
         }
+    }
+
+    @Override
+    public String getSearchSuggestion(String searchString) {
+        String[] suggestions = getSearchSuggestions(searchString, null, true);
+        return (suggestions != null && suggestions.length > 0)?suggestions[0]:null;
     }
 
     //-------------------------------------------------------------------------------------------
