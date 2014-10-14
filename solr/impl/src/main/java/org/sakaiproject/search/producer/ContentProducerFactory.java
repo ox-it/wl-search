@@ -71,7 +71,7 @@ public class ContentProducerFactory {
                 logger.info("The content producer '{}' has thrown an exception", contentProducer, e);
             }
         }
-        logger.warn("Couldn't find a content producer for event '{}'", event);
+        logger.debug("Couldn't find a content producer for event '{}'", event);
         return null;
     }
 
