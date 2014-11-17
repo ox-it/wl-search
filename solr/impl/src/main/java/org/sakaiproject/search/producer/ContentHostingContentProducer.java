@@ -7,6 +7,7 @@ import org.sakaiproject.entity.api.EntityManager;
 import org.sakaiproject.entity.api.ResourceProperties;
 import org.sakaiproject.event.api.Event;
 import org.sakaiproject.exception.IdUnusedException;
+import org.sakaiproject.exception.SakaiException;
 import org.sakaiproject.search.api.EntityContentProducer;
 import org.sakaiproject.search.api.SearchIndexBuilder;
 import org.sakaiproject.search.api.SearchService;
@@ -193,10 +194,38 @@ public abstract class ContentHostingContentProducer implements EntityContentProd
                 String propertyName = propertiesIterator.next();
                 props.put(propertyName, rp.getPropertyList(propertyName));
             }
+            // We want a good filename which doesn't include the path.
+            String filename = getFileName(ref);
+            if (filename != null) {
+                props.put("filename", Collections.singletonList(filename));
+            }
             return props;
         } catch (Exception e) {
             return Collections.emptyMap();
         }
+    }
+
+    /**
+     * This just extracts a filename
+     * @param ref
+     * @return
+     */
+    String getFileName(String ref) {
+        // This attempts to get the filename from a reference.
+        int start = ref.lastIndexOf("/");
+        int end = ref.length();
+
+        if (start == ref.length() - 1) {
+            // Don't include the last "/"
+            end--;
+            start = ref.lastIndexOf("/", start -1);
+        }
+        if (start > 0) {
+            return ref.substring(start + 1, end);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
