@@ -293,7 +293,7 @@ public class SolrSearchService implements SearchService {
             QueryResponse response = solrServer.query(params);
             SpellCheckResponse spellCheckResponse = response.getSpellCheckResponse();
             if (spellCheckResponse == null || !spellCheckResponse.isCorrectlySpelled())
-                return null;
+                return new String[]{};
             else {
                 List<SpellCheckResponse.Collation> collatedResults = spellCheckResponse.getCollatedResults();
                 List<String> suggestions = new ArrayList<String>(collatedResults.size());
